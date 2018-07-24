@@ -2,8 +2,6 @@
 
 class Titanxdr extends CI_Controller {
 
-public $data;
-
        public function __construct() {
         parent::__construct();
         $this->load->model('titanxdr_model');
@@ -11,12 +9,12 @@ public $data;
         $this->load->library('table');
         }
       public function index() {
-        $data['titantdr'] = $this->titanxdr_model->get_last_ten_tdr();
-        //$data['titancdr'] = $this->titanxdr_model->get_last_ten_cdr();
+        $data['title']='TITAN (X)DR';
+        $data['titantdrcalls'] = $this->titanxdr_model->get_dashtdr();
         //print_r($data);
-        $this->load->view('titanxdr/Titanxdr_View', $data);
-
-        //$this->load->view('templates/header', $data);
-        //$this->load->view('templates/footer');
+        $this->load->view('templates/header', $data);
+        //$this->load->view('titanxdr/Titanxdr_View', $data);
+        $this->load->view('titanxdr/titantdrcall_View', $data);
+        $this->load->view('templates/footer');
     }
 }

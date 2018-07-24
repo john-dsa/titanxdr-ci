@@ -1,5 +1,4 @@
 <?php
-
 class Titanxdr_model extends CI_Model {
 
     public function __construct() {
@@ -7,17 +6,10 @@ class Titanxdr_model extends CI_Model {
         $this->load->database();
     }
 
-    public function get_last_ten_tdr() {
-        $tdr = $this->db->query('SELECT * FROM tdr LIMIT 10');
-        foreach ($tdr->result() as $row) {
-            return $tdr->result();
-        }
-    }
-    public function get_last_ten_cdr() {
-        $cdr = $this->db->query('SELECT * FROM cdr LIMIT 10');
-        foreach ($cdr->result() as $row) {
-            return $cdr->result();
-        }        
+    public function get_dashtdr() {
+        $dashtdr = $this->db->query('SELECT * FROM `titan`.`tdr` ORDER BY `gmt_time` DESC LIMIT 5;');
+        //return $this->table->generate($dashtdr);
+        return $dashtdr->result_array();
     }
 
 }
