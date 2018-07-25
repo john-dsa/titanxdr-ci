@@ -1,20 +1,36 @@
 <!--Div container for table from CI -->
-<div class="container" style="margin-top: 20px; ">
+<div class="container" style="margin-top: 55px; ">
     <table  id="datatable1" class="table table-striped table-bordered">
         <thead> 
             <tr>
-            <th>Epoch</th><th>Type</th><th>Edge</th><th>Call ID</th><th>GMT</th><th>SRC</th><th>E164 SRC</th><th>Dest</th>
-            <th>E164 Dest</th><th>Porting Corrected</th><th>SRC IP</th><th>SRC Port</th><th>Destination</th><th>Diversion</th><th>Peer</th>
-            <th>Peer List</th><th>Origin CC</th><th>Destination CC</th><th>NNID</th><th>Message</th><th>Action</th><th>Response</th>
-            <th>Event</th><th>Circuit Switched Sub</th><th>ENUM Referral</th><th>LIR Referral</th><th>ENUM Response</th>
+            <th>GMT</th>
+            <th>Source</th>
+            <th>Destination</th>
+            <th>Porting Corrected</th>
+            <th>Diversion</th>
+            <th>CRE</th>
+            <th>Peer</th>
+            <th>Peer List</th>
+            <th>Action</th>
+            <th>Response</th>
+            <th>Event</th>
             </tr>
         </thead>
         
         <tbody>
             <?php foreach ($titantdrcalls as $value): ?>
-                <tr>
-                    <td><?php echo $value['unixtime']; ?></td>
-                    <td><?php echo $value['type']; ?></td>
+            <tr>
+                    <td><?php echo $value['gmt_time']; ?></td>
+                    <td><?php echo $value['cge164clean']; ?></td>
+                    <td><?php echo $value['cde164clean']; ?></td>
+                    <td><?php echo $value['cde164npcorrected']; ?></td>
+                    <td><?php echo $value['diversionnum']; ?></td>
+                    <td><?php echo $value['edge_server']; ?></td>
+                    <td><?php echo $value['peer_name']; ?></td>
+                    <td><?php echo $value['peer_list_name']; ?></td>
+                    <td><?php echo $value['action']; ?></td>
+                    <td><?php echo $value['response']; ?></td>
+                    <td><?php echo $value['event_code']; ?></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
